@@ -25,10 +25,7 @@ public class HomeController : Controller
     ORTWorld.IngresarPaquete(ORTWorld.ListaDestinos[Destino],paqueteN);
     if(Aereo < 0 && Hotel < 0 && Excursion <0 || Aereo > 10 && Hotel > 10 && Excursion > 10){
         ViewBag.Error = "lo recibido no es correcto, vuelva a ingresar";
-        ViewBag.ListaDestinos = ORTWorld.ListaDestinos;
-        ViewBag.ListaHoteles = ORTWorld.ListaHoteles;
-        ViewBag.ListaAereos = ORTWorld.ListaAereos;
-        ViewBag.ListaExcursiones = ORTWorld.ListaExcursiones;
+        RedirectToAction("SelectPaquete");
         return View("SelectPaquete");
         
     }
