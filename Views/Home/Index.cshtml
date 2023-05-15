@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>TP XX -  Index</h1>
+<a href='@Url.Action("SelectPaquete")'>Crear un nuevo paquete</a>
+@foreach (string i in ViewBag.dicPaquetes.Keys)
+{
+    <h1>Paquetes nuevo</h1>
+    <h1>Destino @i</h1>
+    <img src="~/img/@ViewBag.dicPaquetes[i].Hotel" height="auto" width="250">
+    <img src="~/img/@ViewBag.dicPaquetes[i].Aereo" height="auto" width="250">
+    <img src="~/img/@ViewBag.dicPaquetes[i].Excursion" height="auto" width="250">
+
+}
