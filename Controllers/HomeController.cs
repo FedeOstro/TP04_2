@@ -17,20 +17,19 @@ public class HomeController : Controller
     }
 
     public IActionResult GuardarPaquete (int Destino, int Hotel, int Aereo, int Excursion){
-    Destino -=1;
-    Hotel -= 1;
-    Aereo-= 1;
-    Excursion -= 1;
-    Paquete paqueteN = new Paquete (ORTWorld.ListaHoteles[Hotel], ORTWorld.ListaAereos[Aereo], ORTWorld.ListaExcursiones[Excursion]);
-    ORTWorld.IngresarPaquete(ORTWorld.ListaDestinos[Destino],paqueteN);
-    if(Aereo < 0 && Hotel < 0 && Excursion <0 || Aereo > 10 && Hotel > 10 && Excursion > 10){
+   
+    if(Aereo <= 0 || Hotel <= 0 || Excursion <= 0 || Aereo > 10 || Hotel > 10 || Excursion > 10){
         ViewBag.Error = "lo recibido no es correcto, vuelva a ingresar";
-        RedirectToAction("SelectPaquete");
-        return View("SelectPaquete");
-        
+        return RedirectToAction("SelectPaquete");
     }
     else{
-        ViewBag.dicPaquetes = ORTWorld.dicPaquetes;
+         Destino -=1;
+        Hotel -= 1;
+         Aereo-= 1;
+         Excursion -= 1;
+         Paquete paqueteN = new Paquete (ORTWorld.ListaHoteles[Hotel], ORTWorld.ListaAereos[Aereo], ORTWorld.ListaExcursiones[Excursion]);
+         ORTWorld.IngresarPaquete(ORTWorld.ListaDestinos[Destino],paqueteN);
+            ViewBag.dicPaquetes = ORTWorld.dicPaquetes;
         return View("Index");
     }
     
