@@ -4,21 +4,64 @@
 
 <h1>TP 04 -  Index</h1>
 <a href='@Url.Action("SelectPaquete")'>Crear un nuevo paquete</a>
-@foreach (string i in ViewBag.dicPaquetes.Keys)
-{   
-    <h1>Paquetes nuevo</h1>
-    <p>Destino @i</p>
-    <img src="~/img/@ViewBag.dicPaquetes[i].Hotel" height="auto" width="250">
-    <img src="~/img/@ViewBag.dicPaquetes[i].Aereo" height="auto" width="250">
-    <img src="~/img/@ViewBag.dicPaquetes[i].Excursion" height="auto" width="250">
-    <a href='@Url.Action("BorrarPaquete", new {destino=i})'> Borrar Paquete</a>
-}
+
+        @foreach (string i in ViewBag.dicPaquetes.Keys)
+        {   
+            <div class="container">
+                <div class="imagenes">
+                    <div class="paquete">
+                    <h1>Paquetes nuevo</h1>
+                    <p>Destino @i</p>
+                    <img src="~/img/@ViewBag.dicPaquetes[i].Hotel" height="auto" width="250">
+                    <img src="~/img/@ViewBag.dicPaquetes[i].Aereo" height="auto" width="250">
+                    <img src="~/img/@ViewBag.dicPaquetes[i].Excursion" height="auto" width="250">
+                    <a href='@Url.Action("BorrarPaquete", new {destino=i})'>Borrar Paquete</a>
+                    </div>
+                </div>
+            </div>
+        }
+    
+
 <style>
-body{
-        background:linear-gradient(rgb(91, 145, 104),rgb(20, 172, 164));
-        background-position: center;
-        background-repeat:no-repeat;
-        background-size:cover;
-        background-attachment:fixed;
-    }
+body {
+    background: linear-gradient(rgb(91, 145, 104), rgb(20, 172, 164));
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.imagenes {
+    border: 1px solid black;
+    background-color: lightgray;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.paquete {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.paquete img {
+    width: 100%;
+    margin-top: 10px;
+}
+
+h1, h2, p {
+    margin: 0;
+}
+
+a {
+    display: block;
+    margin-top: 10px;
+}
 </style>

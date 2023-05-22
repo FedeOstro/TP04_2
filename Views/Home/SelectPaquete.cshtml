@@ -13,7 +13,7 @@
         <div class="Palabra-Destino">
             @foreach (string destino in ViewBag.ListaDestinos)
             {
-                @destino
+                <ol>@destino</ol>
             }
         </div>
         <p>Seleccione una opcion </p><input type="number" name= "Destino"max="10" min="1" step="1">
