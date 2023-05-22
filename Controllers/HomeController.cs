@@ -34,4 +34,9 @@ public class HomeController : Controller
     }
     
     }
+    public IActionResult BorrarPaquete(string destino){
+        ORTWorld.dicPaquetes.Remove(destino);
+        return RedirectToAction("Index");
+    }
+      
 }

@@ -13,14 +13,8 @@ class ORTWorld{
     public static Dictionary<string, Paquete> dicPaquetes {get; private set;} = new Dictionary<string, Paquete>{};
     
     public static bool IngresarPaquete(string destinoSeleccionado, Paquete paquete){
-        bool ingresar = true;
-        int posPaquete = 0;
-        foreach(Paquete buscpaquete in dicPaquetes.Values){
-            if(buscpaquete == paquete){
-                ingresar = false;
-            }
-        }
-        if(ingresar = false){
+        bool ingresar = dicPaquetes.ContainsKey(destinoSeleccionado);
+        if(ingresar == true){
             return ingresar;
         }else{
             dicPaquetes.Add(destinoSeleccionado, paquete);
