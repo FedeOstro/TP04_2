@@ -3,8 +3,9 @@
 }
 
 <h1>TP 04 -  Index</h1>
-<a href='@Url.Action("SelectPaquete")'>Crear un nuevo paquete</a>
-
+<a href='@Url.Action("SelectPaquete")'>Crear un nuevo paquete</a> 
+<img src="~/img/porto.jpg"></img>
+<audio src="~/audio/momo.mp3" controls  autoplay loop></audio>
         @foreach (string i in ViewBag.dicPaquetes.Keys)
         {   
             <div class="container">
@@ -15,7 +16,7 @@
                     <img src="~/img/@ViewBag.dicPaquetes[i].Hotel" height="auto" width="250">
                     <img src="~/img/@ViewBag.dicPaquetes[i].Aereo" height="auto" width="250">
                     <img src="~/img/@ViewBag.dicPaquetes[i].Excursion" height="auto" width="250">
-                    <a href='@Url.Action("BorrarPaquete", new {destino=i})'>Borrar Paquete</a>
+                    <a href='@Url.Action("BorrarPaquete", new {destino=i})'><img src="~/img/tacho.png"></a>
                     </div>
                 </div>
             </div>
@@ -29,6 +30,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    
 }
 
 .container {
